@@ -1,125 +1,113 @@
 {
   "migrationVersion": 1,
-  "highlighter_settings": {
-    "highlighterEnabled": true,
-    "alwaysShowHighlights": true,
-    "highlightBehavior": "highlight-inline"
+  "vaults": [],
+  "stats": {
+    "addToObsidian": 91,
+    "saveFile": 0,
+    "copyToClipboard": 13,
+    "share": 0
   },
-  "reader_settings": {
-    "fontSize": 1.5,
-    "lineHeight": 1.6,
-    "maxWidth": 38,
-    "theme": "default",
-    "themeMode": "auto"
+  "general_settings": {
+    "showMoreActionsButton": false,
+    "betaFeatures": false,
+    "legacyMode": false,
+    "silentOpen": false,
+    "openBehavior": "popup",
+    "saveBehavior": "addToObsidian"
   },
-  "interpreter_settings": {
-    "interpreterModel": "",
-    "models": [],
-    "providers": [],
-    "interpreterEnabled": false,
-    "interpreterAutoRun": false,
-    "defaultPromptContext": ""
-  },
-  "template_1772915213065wbcvrqa": {
+  "template_17820641017921gcnly0": {
     "schemaVersion": "0.1.0",
-    "name": "Goodreads",
+    "name": "Hardcover",
     "behavior": "create",
-    "noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
-    "path": "References",
-    "noteContentFormat": "{{selector:.BookPageMetadataSection__description}}",
+    "noteContentFormat": "{{schema:@Book:description}}",
     "properties": [
       {
-        "id": "17729152130716ou2r54",
+        "id": "1782064101792t090hiz",
         "name": "categories",
         "value": "[[Books]]",
         "type": "multitext"
       },
       {
-        "id": "1772915213071hzs43cb",
+        "id": "17820641017927o56mlr",
         "name": "title",
-        "value": "{{selector:.BookPageTitleSection__title h1}}",
+        "value": "{{title}}",
         "type": "text"
       },
       {
-        "id": "1772915213071qeammna",
+        "id": "178206410179218mzi4i",
         "name": "author",
-        "value": "{{selector:.ContributorLink__name|unique|wikilink|join}}",
+        "value": "{{author|split:\\\", \\\"|wikilink|join}}",
         "type": "multitext"
       },
       {
-        "id": "17729152130716h92bo0",
+        "id": "1782064101792oj8begq",
         "name": "genre",
-        "value": "{{selector:.BookPageMetadataSection__genres .BookPageMetadataSection__genreButton|wikilink|join}}",
+        "value": "{{schema:@Book:genre}}",
         "type": "multitext"
       },
       {
-        "id": "17729152130717q3ozxy",
+        "id": "1782064101792wj7fwqk",
         "name": "pages",
-        "value": "{{selector:p[data-testid]='pagesFormat'|split:\\\", \\\"|slice:0|split:\\\" \\\"|slice:0}}",
+        "value": "",
         "type": "text"
       },
       {
-        "id": "1772915213071o4quxic",
+        "id": "1782064101792dbpp7p7",
         "name": "year",
-        "value": "{{selector:p[data-testid='publicationInfo']|split:\\\" \\\"|last}}",
+        "value": "{{published|date:YYYY}}",
         "type": "number"
       },
       {
-        "id": "1772915213071naqdjq7",
-        "name": "scoreGr",
-        "value": "{{selector:.RatingStatistics__rating|first|round:2}}",
+        "id": "1782064101792lg23tz4",
+        "name": "scoreHc",
+        "value": "{{schema:@Book:aggregateRating.ratingValue|round:2}}",
         "type": "number"
       },
       {
-        "id": "177291521307152duerp",
+        "id": "17820641017929egaigt",
         "name": "rating",
         "value": "",
         "type": "number"
       },
       {
-        "id": "17729152130718y86ncj",
+        "id": "1782064101792ozs48lq",
         "name": "cover",
-        "value": "{{selector:.BookCover__image img?src|first}}",
+        "value": "{{image}}",
         "type": "text"
       },
       {
-        "id": "17729152130710yrp399",
+        "id": "17820641017924kqaiiq",
         "name": "isbn",
-        "value": "{{selector:.DescList|split:\\\"ISBN\\\"|slice:1,2|split:\\\" \\\"|first}}",
+        "value": "{{schema:@Book:isbn}}",
         "type": "text"
       },
       {
-        "id": "1772915213071g54dsun",
+        "id": "1782064101792eluedgq",
         "name": "language",
-        "value": "{{selector:.DescList|split:\\\"Language\\\"|last}}",
+        "value": "{{language}}",
         "type": "text"
       },
       {
-        "id": "17729152130710n01c27",
+        "id": "1782064101792e68jayw",
         "name": "created",
         "value": "{{date}}",
         "type": "date"
       },
       {
-        "id": "1772915213071va3yw0e",
+        "id": "1782064101792502wqye",
         "name": "tags",
         "value": "books, to-read",
         "type": "multitext"
       }
     ],
     "triggers": [
-      "https://www.goodreads.com/book/"
+      "https://hardcover.app/books/"
     ],
-    "id": "1772915213065wbcvrqa",
+    "noteNameFormat": "{{author}} – {{title}}",
+    "path": "References",
+    "id": "17820641017921gcnly0",
     "context": ""
   },
-  "template_list": [
-    "1772915213065wbcvrqa",
-    "17729070207694cfm5ms",
-    "1772906006072y9hq2je",
-    "176022931134530v6ad1bm"
-  ],
-  "vaults": [],
   "template_17729070207694cfm5ms": {
     "schemaVersion": "0.1.0",
     "name": "Letterboxd",
@@ -206,13 +194,62 @@
     ],
     "id": "17729070207694cfm5ms"
   },
-  "general_settings": {
-    "showMoreActionsButton": false,
-    "betaFeatures": false,
-    "legacyMode": false,
-    "silentOpen": false,
-    "openBehavior": "popup",
-    "saveBehavior": "addToObsidian"
+  "template_1772906006072y9hq2je": {
+    "schemaVersion": "0.1.0",
+    "name": "YouTube",
+    "behavior": "create",
+    "noteNameFormat": "{{schema:author}} – {{schema:name}}",
+    "path": "Clippings",
+    "noteContentFormat": "![{{schema:name}}]({{url}})",
+    "properties": [
+      {
+        "id": "1772906006074pk7bs89",
+        "name": "title",
+        "value": "{{schema:name}}",
+        "type": "text"
+      },
+      {
+        "id": "17729060060742hezo72",
+        "name": "author",
+        "value": "{{schema:author|wikilink}}",
+        "type": "multitext"
+      },
+      {
+        "id": "1772906006074tpx0vdf",
+        "name": "published",
+        "value": "{{schema:uploadDate|date:YYYY-MM-DD}}",
+        "type": "date"
+      },
+      {
+        "id": "1772906006074lbzzaj7",
+        "name": "source",
+        "value": "{{url}}",
+        "type": "text"
+      },
+      {
+        "id": "1772906006074gz46o9a",
+        "name": "image",
+        "value": "{{schema:thumbnailUrl|slice:0}}",
+        "type": "text"
+      },
+      {
+        "id": "1772906006074g57rt1m",
+        "name": "created",
+        "value": "{{date}}",
+        "type": "date"
+      },
+      {
+        "id": "17729060060745ykfhby",
+        "name": "tags",
+        "value": "videos",
+        "type": "multitext"
+      }
+    ],
+    "triggers": [
+      "https://www.youtube.com/watch?v="
+    ],
+    "id": "1772906006072y9hq2je",
+    "context": ""
   },
   "template_176022931134530v6ad1bm": {
     "id": "176022931134530v6ad1bm",
@@ -277,62 +314,22 @@
       "https"
     ]
   },
-  "template_1772906006072y9hq2je": {
-    "schemaVersion": "0.1.0",
-    "name": "YouTube",
-    "behavior": "create",
-    "noteNameFormat": "{{schema:author}} – {{schema:name}}",
-    "path": "Clippings",
-    "noteContentFormat": "![{{schema:name}}]({{url}})",
-    "properties": [
-      {
-        "id": "1772906006074pk7bs89",
-        "name": "title",
-        "value": "{{schema:name}}",
-        "type": "text"
-      },
-      {
-        "id": "17729060060742hezo72",
-        "name": "author",
-        "value": "{{schema:author|wikilink}}",
-        "type": "multitext"
-      },
-      {
-        "id": "1772906006074tpx0vdf",
-        "name": "published",
-        "value": "{{schema:uploadDate|date:YYYY-MM-DD}}",
-        "type": "date"
-      },
-      {
-        "id": "1772906006074lbzzaj7",
-        "name": "source",
-        "value": "{{url}}",
-        "type": "text"
-      },
-      {
-        "id": "1772906006074gz46o9a",
-        "name": "image",
-        "value": "{{schema:thumbnailUrl|slice:0}}",
-        "type": "text"
-      },
-      {
-        "id": "1772906006074g57rt1m",
-        "name": "created",
-        "value": "{{date}}",
-        "type": "date"
-      },
-      {
-        "id": "17729060060745ykfhby",
-        "name": "tags",
-        "value": "videos",
-        "type": "multitext"
-      }
-    ],
-    "triggers": [
-      "https://www.youtube.com/watch?v="
-    ],
-    "id": "1772906006072y9hq2je",
-    "context": ""
+  "reader_settings": {
+    "fontSize": 1.5,
+    "lineHeight": 1.6,
+    "maxWidth": 38,
+    "lightTheme": "default",
+    "darkTheme": "same",
+    "appearance": "auto",
+    "fonts": [],
+    "defaultFont": "",
+    "blendImages": true,
+    "colorLinks": false,
+    "followLinks": true,
+    "pinPlayer": true,
+    "autoScroll": true,
+    "highlightActiveLine": true,
+    "customCss": ""
   },
   "property_types": [
     {
@@ -451,12 +448,124 @@
       "name": "language",
       "type": "text",
       "defaultValue": "{{selector:.DescList|split:\\\"Language\\\"|last}}"
+    },
+    {
+      "name": "scoreHc",
+      "type": "number",
+      "defaultValue": "{{selector:schema.@Book:aggregateRating.ratingValue|round:2}}"
     }
   ],
-  "stats": {
-    "addToObsidian": 61,
-    "saveFile": 0,
-    "copyToClipboard": 0,
-    "share": 0
-  }
+  "interpreter_settings": {
+    "interpreterModel": "",
+    "models": [],
+    "providers": [],
+    "interpreterEnabled": false,
+    "interpreterAutoRun": false,
+    "defaultPromptContext": ""
+  },
+  "highlighter_settings": {
+    "highlighterEnabled": true,
+    "alwaysShowHighlights": true,
+    "highlightBehavior": "highlight-inline"
+  },
+  "template_1772915213065wbcvrqa": {
+    "schemaVersion": "0.1.0",
+    "name": "Goodreads",
+    "behavior": "create",
+    "noteNameFormat": "{{selector:.BookPageTitleSection__title h1}}",
+    "path": "References",
+    "noteContentFormat": "{{selector:.BookPageMetadataSection__description}}",
+    "properties": [
+      {
+        "id": "17729152130716ou2r54",
+        "name": "categories",
+        "value": "[[Books]]",
+        "type": "multitext"
+      },
+      {
+        "id": "1772915213071hzs43cb",
+        "name": "title",
+        "value": "{{selector:.BookPageTitleSection__title h1}}",
+        "type": "text"
+      },
+      {
+        "id": "1772915213071qeammna",
+        "name": "author",
+        "value": "{{selector:.ContributorLink__name|unique|wikilink|join}}",
+        "type": "multitext"
+      },
+      {
+        "id": "17729152130716h92bo0",
+        "name": "genre",
+        "value": "{{selector:.BookPageMetadataSection__genres .BookPageMetadataSection__genreButton|wikilink|join}}",
+        "type": "multitext"
+      },
+      {
+        "id": "17729152130717q3ozxy",
+        "name": "pages",
+        "value": "{{selector:p[data-testid]='pagesFormat'|split:\\\", \\\"|slice:0|split:\\\" \\\"|slice:0}}",
+        "type": "text"
+      },
+      {
+        "id": "1772915213071o4quxic",
+        "name": "year",
+        "value": "{{selector:p[data-testid='publicationInfo']|split:\\\" \\\"|last}}",
+        "type": "number"
+      },
+      {
+        "id": "1772915213071naqdjq7",
+        "name": "scoreGr",
+        "value": "{{selector:.RatingStatistics__rating|first|round:2}}",
+        "type": "number"
+      },
+      {
+        "id": "177291521307152duerp",
+        "name": "rating",
+        "value": "",
+        "type": "number"
+      },
+      {
+        "id": "17729152130718y86ncj",
+        "name": "cover",
+        "value": "{{selector:.BookCover__image img?src|first}}",
+        "type": "text"
+      },
+      {
+        "id": "17729152130710yrp399",
+        "name": "isbn",
+        "value": "{{selector:.DescList|split:\\\"ISBN\\\"|slice:1,2|split:\\\" \\\"|first}}",
+        "type": "text"
+      },
+      {
+        "id": "1772915213071g54dsun",
+        "name": "language",
+        "value": "{{selector:.DescList|split:\\\"Language\\\"|last}}",
+        "type": "text"
+      },
+      {
+        "id": "17729152130710n01c27",
+        "name": "created",
+        "value": "{{date}}",
+        "type": "date"
+      },
+      {
+        "id": "1772915213071va3yw0e",
+        "name": "tags",
+        "value": "books, to-read",
+        "type": "multitext"
+      }
+    ],
+    "triggers": [
+      "https://www.goodreads.com/book/"
+    ],
+    "id": "1772915213065wbcvrqa",
+    "context": ""
+  },
+  "template_list": [
+    "17820641017921gcnly0",
+    "1772915213065wbcvrqa",
+    "17729070207694cfm5ms",
+    "1772906006072y9hq2je",
+    "176022931134530v6ad1bm"
+  ]
 }
